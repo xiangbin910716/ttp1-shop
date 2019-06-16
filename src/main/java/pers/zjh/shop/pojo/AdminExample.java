@@ -304,73 +304,63 @@ public class AdminExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("type is null");
+        public Criteria andRole_idIsNull() {
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("type is not null");
+        public Criteria andRole_idIsNotNull() {
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(String value) {
-            addCriterion("type =", value, "type");
+        public Criteria andRole_idEqualTo(Integer value) {
+            addCriterion("role_id =", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(String value) {
-            addCriterion("type <>", value, "type");
+        public Criteria andRole_idNotEqualTo(Integer value) {
+            addCriterion("role_id <>", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(String value) {
-            addCriterion("type >", value, "type");
+        public Criteria andRole_idGreaterThan(Integer value) {
+            addCriterion("role_id >", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("type >=", value, "type");
+        public Criteria andRole_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_id >=", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(String value) {
-            addCriterion("type <", value, "type");
+        public Criteria andRole_idLessThan(Integer value) {
+            addCriterion("role_id <", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(String value) {
-            addCriterion("type <=", value, "type");
+        public Criteria andRole_idLessThanOrEqualTo(Integer value) {
+            addCriterion("role_id <=", value, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLike(String value) {
-            addCriterion("type like", value, "type");
+        public Criteria andRole_idIn(List<Integer> values) {
+            addCriterion("role_id in", values, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotLike(String value) {
-            addCriterion("type not like", value, "type");
+        public Criteria andRole_idNotIn(List<Integer> values) {
+            addCriterion("role_id not in", values, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<String> values) {
-            addCriterion("type in", values, "type");
+        public Criteria andRole_idBetween(Integer value1, Integer value2) {
+            addCriterion("role_id between", value1, value2, "role_id");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<String> values) {
-            addCriterion("type not in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeBetween(String value1, String value2) {
-            addCriterion("type between", value1, value2, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotBetween(String value1, String value2) {
-            addCriterion("type not between", value1, value2, "type");
+        public Criteria andRole_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_id not between", value1, value2, "role_id");
             return (Criteria) this;
         }
     }
