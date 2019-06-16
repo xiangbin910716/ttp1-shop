@@ -7,7 +7,10 @@ public class Admin {
 
     private String password;
 
-    private Integer role_id;
+
+    private Integer roleId;
+
+    private String type;
 
     public Integer getId() {
         return id;
@@ -33,11 +36,19 @@ public class Admin {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getRole_id() {
-        return role_id;
+    public String getType() {
+        return type;
     }
 
-    public void setRole_id(Integer role_id) {
-        this.role_id = role_id;
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }
