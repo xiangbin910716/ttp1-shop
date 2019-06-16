@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="pers.zjh.shop.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="pers.zjh.shop.pojo.Admin" >
+<mapper namespace="pers.zjh.shop.mapper.RoleMapper" >
+  <resultMap id="BaseResultMap" type="pers.zjh.shop.pojo.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="role_id" property="roleId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -37,24 +35,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, password, role_id
+    id, name
   </sql>
-
-  <!-- 条件查询管理员-->
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pers.zjh.shop.pojo.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pers.zjh.shop.pojo.RoleExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'false' as QUERYID,
-    a.id as id,
-    a.name as name,
-    a.password as password,
-    a.role_id as roleId
-    ,r.name as type
-    ,r.id as rId
-    from admin a
-    left join role r on a.role_id = r.id
+    <include refid="Base_Column_List" />
+    from role
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -62,85 +52,45 @@
       order by ${orderByClause}
     </if>
   </select>
-
-  <!-- 根据主键id 查询管理员-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    a.id as id,
-    a.name as name,
-    a.password as password,
-    a.role_id as roleId
-    ,r.name as type
-    ,r.id as rId
-    from admin a
-    left join role r on a.role_id = r.id
-    where a.id = #{id,jdbcType=INTEGER}
+    <include refid="Base_Column_List" />
+    from role
+    where id = #{id,jdbcType=INTEGER}
   </select>
-
-  <!-- 根据主键id 删除管理员-->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from admin
+    delete from role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-
-  <!-- 添加管理员-->
-  <insert id="insert" parameterType="pers.zjh.shop.pojo.Admin" useGeneratedKeys="true" keyProperty="id" >
-    insert into admin (name, password, role_id
-      )
-    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="pers.zjh.shop.pojo.Role" useGeneratedKeys="true" keyProperty="id" >
+    insert into role (name)
+    values (#{name,jdbcType=VARCHAR})
   </insert>
-
-  <!-- 选择性添加管理员-->
-  <insert id="insertSelective" parameterType="pers.zjh.shop.pojo.Admin" useGeneratedKeys="true" keyProperty="id" >
-    insert into admin
+  <insert id="insertSelective" parameterType="pers.zjh.shop.pojo.Role" useGeneratedKeys="true" keyProperty="id" >
+    insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="name != null" >
         name,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="type != null" >
-        type,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null" >
-        #{type,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
-
-  <!-- 更新管理员-->
-  <update id="updateByPrimaryKeySelective" parameterType="pers.zjh.shop.pojo.Admin" >
-    update admin
+  <update id="updateByPrimaryKeySelective" parameterType="pers.zjh.shop.pojo.Role" >
+    update role
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!-- 选择性更新管理员-->
-  <update id="updateByPrimaryKey" parameterType="pers.zjh.shop.pojo.Admin" >
-    update admin
-    set name = #{name,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="pers.zjh.shop.pojo.Role" >
+    update role
+    set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -7,6 +7,9 @@ public class Admin {
 
     private String password;
 
+
+    private Integer roleId;
+
     private String type;
 
     public Integer getId() {
@@ -39,5 +42,13 @@ public class Admin {
 
     public void setType(String type) {
         this.type = type == null ? null : type.trim();
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }
