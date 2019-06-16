@@ -36,10 +36,10 @@ INSERT INTO `admin` VALUES ('12', '玛丽', '23', '超级管理员');
 ALTER TABLE admin CHANGE TYPE role_id INT(11);
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-)
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` VARCHAR(255) DEFAULT NULL COMMENT '角色名称',
+   PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='角色表'
 -- ----------------------------
 -- Table structure for `category`
 -- ----------------------------
