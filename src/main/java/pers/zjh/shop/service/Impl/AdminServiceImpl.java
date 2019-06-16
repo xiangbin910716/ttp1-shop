@@ -28,6 +28,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public void add(Admin admin) {
+
         adminMapper.insert(admin);
     }
 

@@ -73,9 +73,9 @@
 
   <!-- 添加管理员-->
   <insert id="insert" parameterType="pers.zjh.shop.pojo.Admin" useGeneratedKeys="true" keyProperty="id" >
-    insert into admin (name, password, type
+    insert into admin (name, password, role_id
       )
-    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}
+    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}
       )
   </insert>
 

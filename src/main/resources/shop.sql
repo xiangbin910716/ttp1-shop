@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` VALUES ('11', '寂寞哥', '123', '普通管理员');
 INSERT INTO `admin` VALUES ('12', '玛丽', '23', '超级管理员');
 
+ALTER TABLE admin CHANGE TYPE role_id INT(11);
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+)
 -- ----------------------------
 -- Table structure for `category`
 -- ----------------------------
