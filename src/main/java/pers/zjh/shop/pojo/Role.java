@@ -3,7 +3,7 @@ package pers.zjh.shop.pojo;
 public class Role {
     private Integer id;
 
-    private String name;
+    private String roleName;
 
     public Integer getId() {
         return id;
@@ -13,11 +13,11 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

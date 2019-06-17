@@ -51,7 +51,7 @@
     a.name as name,
     a.password as password,
     a.role_id as roleId
-    ,r.name as type
+    ,r.role_name as type
     ,r.id as rId
     from admin a
     left join role r on a.role_id = r.id
@@ -70,7 +70,7 @@
     a.name as name,
     a.password as password,
     a.role_id as roleId
-    ,r.name as type
+    ,r.role_name as type
     ,r.id as rId
     from admin a
     left join role r on a.role_id = r.id

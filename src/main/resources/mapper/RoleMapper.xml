@@ -3,7 +3,7 @@
 <mapper namespace="pers.zjh.shop.mapper.RoleMapper" >
   <resultMap id="BaseResultMap" type="pers.zjh.shop.pojo.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -35,7 +35,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name
+    id, role_name
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pers.zjh.shop.pojo.RoleExample" >
     select
@@ -63,34 +63,34 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="pers.zjh.shop.pojo.Role" useGeneratedKeys="true" keyProperty="id" >
-    insert into role (name)
-    values (#{name,jdbcType=VARCHAR})
+    insert into role (role_name)
+    values (#{roleName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="pers.zjh.shop.pojo.Role" useGeneratedKeys="true" keyProperty="id" >
     insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        name,
+      <if test="roleName != null" >
+        role_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="pers.zjh.shop.pojo.Role" >
     update role
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="pers.zjh.shop.pojo.Role" >
     update role
-    set name = #{name,jdbcType=VARCHAR}
+    set role_name = #{roleName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
