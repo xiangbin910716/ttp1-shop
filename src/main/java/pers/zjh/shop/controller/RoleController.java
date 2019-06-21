@@ -13,13 +13,13 @@ import pers.zjh.shop.util.Page;
 import java.util.List;
 
 @RestController
-@RequestMapping("role")
+@RequestMapping("/role")
 public class RoleController {
 
     @Autowired
     RoleService roleService;
 
-    @RequestMapping("getRoleList")
+    @RequestMapping("/getRoleList")
     public String list(Model model, Page page){
         // 取数据前设置分页参数
         PageHelper.offsetPage(page.getStart(),page.getCount());
@@ -33,7 +33,7 @@ public class RoleController {
         return "role/listRole";
     }
 
-    @RequestMapping("role_delete")
+    @RequestMapping("/role_delete")
     public String delete(Integer id){
         if (null == id){
             return "fail";
@@ -47,7 +47,7 @@ public class RoleController {
      * @param       role,model
      * @return
      */
-    @RequestMapping("role_add")
+    @RequestMapping("/role_add")
     public String add(Role role,Model model){
         if (null == role){
             return "fail";
