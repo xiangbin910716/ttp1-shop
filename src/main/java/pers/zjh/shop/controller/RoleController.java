@@ -42,11 +42,7 @@ public class RoleController {
         return "redirect:/role/getRoleList";
     }
 
-    /**
-     * @Describe    添加管理员用户
-     * @param       role,model
-     * @return
-     */
+
     @RequestMapping("/role_add")
     public String add(Role role,Model model){
         if (null == role){
