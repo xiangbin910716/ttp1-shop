@@ -3,6 +3,7 @@ package pers.zjh.shop.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +13,14 @@ import pers.zjh.shop.util.Page;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/role")
+@Controller
+@RequestMapping("role")
 public class RoleController {
 
     @Autowired
     RoleService roleService;
 
-    @RequestMapping("/getRoleList")
+    @RequestMapping("getRoleList")
     public String list(Model model, Page page){
         // 取数据前设置分页参数
         PageHelper.offsetPage(page.getStart(),page.getCount());
@@ -30,10 +31,10 @@ public class RoleController {
         page.setTotal(total);
         model.addAttribute("page",page);
         model.addAttribute("roles",roles);
-        return "role/listRole";
+        return "admin/listRole";
     }
 
-    @RequestMapping("/role_delete")
+    @RequestMapping("role_delete")
     public String delete(Integer id){
         if (null == id){
             return "fail";
@@ -47,7 +48,7 @@ public class RoleController {
      * @param       role,model
      * @return
      */
-    @RequestMapping("/role_add")
+    @RequestMapping("role_add")
     public String add(Role role,Model model){
         if (null == role){
             return "fail";
