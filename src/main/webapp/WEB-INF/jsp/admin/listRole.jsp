@@ -28,7 +28,7 @@
                 <c:forEach items="${roles}" var="r">
                     <tr>
                         <td>${r.id}</td>
-                        <td>${r.name}</td>
+                        <td>${r.roleName}</td>
                         <td><a deleteLink="true" href="/role/role_delete?id=${r.id}"><span
                                 class=" 	glyphicon glyphicon-trash"></span></a></td>
                     </tr>
