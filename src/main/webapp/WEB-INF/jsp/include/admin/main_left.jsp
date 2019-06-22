@@ -75,6 +75,8 @@
             <ul>
                 <li><a href="admin/getAdminList" target="right"><span>用户列表</span></a></li>
                 <li><a href="admin/addAdminPage" target="right"><span>添加用户</span></a></li>
+                <li><a href="role/getRoleList" target="right"><span>角色列表</span></a></li>
+                <li><a href="role/addRolePage" target="right"><span>添加角色</span></a></li>
             </ul>
         </li>
     </ul>

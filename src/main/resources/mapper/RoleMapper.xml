@@ -52,6 +52,7 @@
       order by ${orderByClause}
     </if>
   </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -69,28 +70,28 @@
   <insert id="insertSelective" parameterType="pers.zjh.shop.pojo.Role" useGeneratedKeys="true" keyProperty="id" >
     insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="roleName != null" >
+      <if test="role_name != null" >
         role_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="roleName != null" >
-        #{roleName,jdbcType=VARCHAR},
+      <if test="role_name != null" >
+        #{role_name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="pers.zjh.shop.pojo.Role" >
     update role
     <set >
-      <if test="roleName != null" >
-        role_name = #{roleName,jdbcType=VARCHAR},
+      <if test="role_name != null" >
+        role_name = #{role_name,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="pers.zjh.shop.pojo.Role" >
     update role
-    set role_name = #{roleName,jdbcType=VARCHAR}
+    set role_name = #{role_name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

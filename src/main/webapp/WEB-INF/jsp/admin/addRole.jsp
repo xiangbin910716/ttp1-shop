@@ -42,8 +42,13 @@
         <form method="post" id="addForm" action="/role/role_add">
             <table class="addTable">
                 <tr>
+                    <td>ID</td>
+                    <td><input id="id" name="id" type="Integer"
+                               class="form-control"></td>
+                </tr>
+                <tr>
                     <td>角色名称</td>
-                    <td><input id="type" name="type" type="text" placeholder="普通管理员/超级管理员"
+                    <td><input id="roleName" name="roleName" type="text"
                                class="form-control"></td>
                 </tr>
 
