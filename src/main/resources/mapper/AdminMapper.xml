@@ -41,12 +41,8 @@
   </sql>
 
   <!-- 条件查询管理员-->
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pers.zjh.shop.pojo.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="java.util.Map">
     select
-    <if test="distinct" >
-      distinct
-    </if>
-    'false' as QUERYID,
     a.id as id,
     a.name as name,
     a.password as password,
@@ -55,12 +51,14 @@
     ,r.id as rId
     from admin a
     left join role r on a.role_id = r.id
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
+    where 1=1
+    <if test="name != null" >
+      AND a.name = #{name,jdbcType=VARCHAR}
     </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
+    <if test="password != null" >
+      AND a.password = #{password,jdbcType=VARCHAR}
     </if>
+      order by a.id desc
   </select>
 
   <!-- 根据主键id 查询管理员-->

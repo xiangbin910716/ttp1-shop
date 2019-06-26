@@ -7,7 +7,9 @@ import pers.zjh.shop.pojo.Admin;
 import pers.zjh.shop.pojo.AdminExample;
 import pers.zjh.shop.service.AdminService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description:    管理员业务逻辑接口实现层
@@ -69,9 +71,9 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public List<Admin> list() {
-        AdminExample example = new AdminExample();
-        example.setOrderByClause("id desc");
-        List<Admin> admins = adminMapper.selectByExample(example);
+//        AdminExample example = new AdminExample();
+//        example.setOrderByClause("id desc");
+        List<Admin> admins = adminMapper.selectByExample(new HashMap());
         return admins;
     }
 
@@ -82,9 +84,12 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin get(String name, String password) {
-        AdminExample example = new AdminExample();
-        example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
-        List<Admin> admins = adminMapper.selectByExample(example);
+//        AdminExample example = new AdminExample();
+//        example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
+        Map param = new HashMap();
+        param.put("name",name);
+        param.put("password",password);
+        List<Admin> admins = adminMapper.selectByExample(param);
         if(admins.isEmpty())
             return null;
         return admins.get(0);
@@ -97,9 +102,11 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public boolean exist(String name) {
-        AdminExample example = new AdminExample();
-        example.createCriteria().andNameEqualTo(name);
-        List<Admin> admins = adminMapper.selectByExample(example);
+//        AdminExample example = new AdminExample();
+//        example.createCriteria().andNameEqualTo(name);
+        Map param = new HashMap();
+        param.put("name",name);
+        List<Admin> admins = adminMapper.selectByExample(param);
         if(admins.isEmpty()){
             return false;
         }
